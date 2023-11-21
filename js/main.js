@@ -1,114 +1,31 @@
 `use strict`;
 
+//Milestone 0: Creaiamo l'array di oggetti.
 
-    //<div class="item active">
-       // <img src="./img/01.jpg" alt="" />
-    //</div>
-
-
-//Creo un array per le immagini//
-
-const images = ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg'];
-
-//Dichiaro delle variabili presenti nel file index//
-
-const items = document.querySelector(`.items`);
-const prev = document.querySelector(`.prev`);
-const next = document.querySelector(`.next`);
-const stop = document.querySelector(`.stop`);
-const begin = document.querySelector(`.begin`);
-stop.addEventListener(`click`, function(){
-    clearInterval(start);
-});
-begin.addEventListener(`click`, function(){
-    setInterval(nextSlides, 3000)
-});
-
-
-
-var currentItem = 0;
-
-for (let i = 0; i < images.length; i++){
-
-
-    //creazione slide
-
-    const item = document.createElement(`div`);
-    item.classList.add(`item`);
-
-    //condizione per inserire la classe active
-
-    if (i === currentItem){
-        item.classList.add(`active`); 
-    }
-
-    //creazione slide
-
-    const img = document.createElement(`img`);
-    img.src = `img/${images[i]}`;
-    img.alt = `Lago ${i}`;
-
-    //inseriamo gli elementi creati in altri tag nel file index
-
-    item.append(img);
-    items.append(item);
-
-}
-
-//Creo variabile 
-
-const domItems = document.querySelectorAll(`.item`);
-
-
-
-
-prev.addEventListener(`click`, function() {
-
-    
-    if (currentItem > 0) {
-        domItems[currentItem].classList.remove(`active`);
-        currentItem--;
-        domItems[currentItem].classList.add (`active`);
-    }
-    if (currentItem === 0){
-        domItems[currentItem].classList.remove(`active`);
-        currentItem = 4;
-        domItems[currentItem].classList.add (`active`);  
-    }
-
-
-});
-
-next.addEventListener(`click`, function() {
-
-    
-    if (currentItem < domItems.length - 1) {
-        domItems[currentItem].classList.remove(`active`);
-        currentItem++;
-        domItems[currentItem].classList.add (`active`);
-    }
-    if (currentItem === 4){
-        domItems[currentItem].classList.remove(`active`);
-        currentItem = 0;
-        domItems[currentItem].classList.add (`active`);
-    }
-
-});
-
-function nextSlides (){
-    if (currentItem > 0) {
-        domItems[currentItem].classList.remove(`active`);
-        currentItem--;
-        domItems[currentItem].classList.add (`active`);
-    }
-    if (currentItem === 0){
-        domItems[currentItem].classList.remove(`active`);
-        currentItem = 4;
-        domItems[currentItem].classList.add (`active`);  
-    }
-
-}
-
-const start = setInterval(nextSlides, 3000);
-
-
+const images = [
+    {
+      image: "lui.jpg",
+      title: "Luis Alberto",
+      text: "Centrocampista totale con una visione di gioco totale, non per questo viene chiamato MAGO a caso. La luz!",
+    },
+    {
+      image: "Ciro.webp",
+      title: "Ciro Immobile",
+      text: "Ormai gli elogi si sprecano: più di 300 goal tra i professionisti, 200 con la Lazio. Attacante devastante e persona meravigliosa. Capitano",
+    },
+    {
+      image: "ivan.jpg",
+      title: "Ivan Provedel",
+      text: "Che finimondo, per quel portiere biondo, si chiama Provedel. Coro e stima da parte di tutti, para e segna anche contro l'Atletico. No sense",
+    },
+    {
+      image: "guendouzi.webp",
+      title: "Matteo Guendouzi",
+      text: "Centrocampista di rottura ma con piedi ottimi e due polmoni infiniti, quasi quasi sono 3. Entra sempre con grinta. Riccioli d'oro",
+    },
+    {
+      image: "taty.webp",
+      title: "Valentin `Taty` Castellanos",
+      text: "Attaccante molto generoso, enorme aiuto alla squadra, grande sponde e una cattiveria da vero argentino. Pitbull",
+    },
+  ];
